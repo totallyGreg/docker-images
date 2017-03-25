@@ -14,6 +14,10 @@ LABEL org.freenas.interactive="false"                                           
               \"descr\": \"Config storage space\"                                               \
           },                                                                                    \
           {                                                                                     \
+              \"name\": \"/scripts\",                                                            \
+              \"descr\": \"Scripts storage space\"                                               \
+          },                                                                                    \
+          {                                                                                     \
               \"name\": \"/downloads\",                                                         \
               \"descr\": \"Downloads volume\"                                                   \
           }                                                                                     \
