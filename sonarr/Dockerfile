@@ -44,23 +44,21 @@ LABEL org.freenas.interactive="false" \
 
 
 # OS update & package installation
-RUN apk -U upgrade && \
-    apk -U add \
-        py2-pip \
+RUN \
+	apt-get update && \
+	apt-get install -y \
         ca-certificates \
-        git \
-        python \
-        py-libxml2 \
-        py-lxml \
-        make \
-        gcc \
-        g++ \
-        python-dev \
-        openssl \
-        openssl-dev \
-        libffi-dev \
-        unrar \
-        tzdata
+	ffmpeg \
+	git \
+	python-pip \
+	openssl \
+	python-dev \
+	libffi-dev \ 
+	libssl-dev \
+	libxml2-dev \
+	libxslt1-dev \
+        tzdata \
+	zlib1g-dev 
 
 # pip package installation
 RUN pip install --upgrade pip && \
@@ -84,11 +82,12 @@ RUN cp /usr/share/zoneinfo/US/Eastern /etc/localtime
 WORKDIR /tmp
 
 # clone ffmpeg
-RUN wget -q https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz && \
-    tar xJf ffmpeg-release-64bit-static.tar.xz && \
-    mv ffmpeg-*-64bit-static/ffmpeg /usr/local/bin/ && \
-    mv ffmpeg-*-64bit-static/ffprobe /usr/local/bin/ && \
-    rm -rf ffmpeg*
+#RUN wget -q https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz && \
+#    tar xJf ffmpeg-release-64bit-static.tar.xz && \
+#    mv ffmpeg-*-64bit-static/ffmpeg /usr/local/bin/ && \
+#    mv ffmpeg-*-64bit-static/ffprobe /usr/local/bin/ && \
+#    rm -rf ffmpeg*
 
 
+# Cleanup
 
