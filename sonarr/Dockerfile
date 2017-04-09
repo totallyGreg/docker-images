@@ -18,21 +18,25 @@ LABEL org.freenas.interactive="false" \
               \"descr\": \"Location of TV library\"			\
           },								\
           {								\
+              \"name\": \"/scripts\",					\
+              \"descr\": \"Location of sickbeard-mp4-automator\"	\
+          },								\
+          {								\
               \"name\": \"/downloads\",					\
-              \"descr\": \"Location of newsreader client downloads\"			\
+              \"descr\": \"Location of newsreader client downloads\"	\
           }								\
       ]" \
-       org.freenas.settings="[ 						                        \
+       org.freenas.settings="[ 						\
           {								                                    \
-              \"env\": \"PUID\",					                              \
+              \"env\": \"PUID\",					\
               \"descr\": \"SONARR USER ID\",				\
-              \"optional\": true					                              \
-          },								                              \
-          {								                                    \
-              \"env\": \"PGID\",					                              \
+              \"optional\": true					\
+          },								\
+          {								\
+              \"env\": \"PGID\",					\
               \"descr\": \"SONARR GROUP ID\",				\
-              \"optional\": true					                              \
-          }                                                                               \
+              \"optional\": true					\
+          }                                                            	\
       ]"                            \  
       org.freenas.static-volumes="[					\
           {								\
