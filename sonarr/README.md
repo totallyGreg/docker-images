@@ -10,6 +10,7 @@ Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can moni
 * `8989` - the port sonarr webinterface
 * `/dev/rtc:/dev/rtc:ro` - map hwclock as ReadOnly (mono throws exceptions otherwise)
 * `/config` - database and sonarr configs
+* `/scripts` - location of sickbeard-mp4-automator scripts
 * `/tv` - location of TV library on disk
 * `PGID` for for GroupID - see below for explanation
 * `PUID` for for UserID - see below for explanation
