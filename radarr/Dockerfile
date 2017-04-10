@@ -16,7 +16,11 @@ LABEL org.freenas.interactive="false"                                   \
           {                                                             \
               \"name\": \"/downloads\",                                 \
               \"descr\": \"Downloads volume\"                           \
-          },                                                            \
+          },
+            {                                                           \
+            \"name\": \"/scripts\",                                     \
+            \"descr\": \"Location of sickbeard-mp4-automator\"          \
+            },                                                          \
           {                                                             \
               \"name\": \"/movies\",                                    \
               \"descr\": \"Movies volume\"                              \
@@ -39,3 +43,51 @@ LABEL org.freenas.interactive="false"                                   \
               \"optional\": true                                        \
          }                                                              \
       ]"
+
+# OS update & package installation
+RUN \
+	apt-get update && \
+	apt-get install -y \
+	ca-certificates \
+	ffmpeg \
+	git \
+	python-pip \
+	openssl \
+	python-dev \
+	libffi-dev \
+	libssl-dev \
+	libxml2-dev \
+	libxslt1-dev \
+	tzdata \
+	zlib1g-dev
+
+# pip package installation
+RUN pip install --upgrade pip && \
+	pip --no-cache-dir install --upgrade setuptools && \
+	pip --no-cache-dir install --upgrade pyopenssl \
+	requests \
+	requests[security] \
+	requests-cache \
+	cheetah \
+	babelfish \
+	"guessit<2" \
+	"subliminal<2" \
+	stevedore==1.19.1 \
+	python-dateutil \
+	deluge-client \
+	qtfaststart \
+	requirements
+
+RUN cp /usr/share/zoneinfo/US/Eastern /etc/localtime
+
+WORKDIR /tmp
+
+# clone ffmpeg
+#RUN wget -q https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz && \
+#    tar xJf ffmpeg-release-64bit-static.tar.xz && \
+#    mv ffmpeg-*-64bit-static/ffmpeg /usr/local/bin/ && \
+#    mv ffmpeg-*-64bit-static/ffprobe /usr/local/bin/ && \
+#    rm -rf ffmpeg*
+
+
+# Cleanup
