@@ -16,11 +16,11 @@ LABEL org.freenas.interactive="false"                                   \
           {                                                             \
               \"name\": \"/downloads\",                                 \
               \"descr\": \"Downloads volume\"                           \
-          },
-            {                                                           \
-            \"name\": \"/scripts\",                                     \
-            \"descr\": \"Location of sickbeard-mp4-automator\"          \
-            },                                                          \
+          },								\
+          {                                                          	\
+              \"name\": \"/scripts\",                              	\
+              \"descr\": \"Location of sickbeard-mp4-automator\" 	\
+          },                                                         	\
           {                                                             \
               \"name\": \"/movies\",                                    \
               \"descr\": \"Movies volume\"                              \
